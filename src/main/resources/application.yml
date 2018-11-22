@@ -1,11 +1,23 @@
+server:
+  port: 8102
 
 spring:
   application:
     name: eureka-service
 
+#eureka:
+#  client:
+#    register-with-eureka: false
+#    fetch-registry: false
+#    server:
+#      waitTimeInMsWhenSyncEmpty: 0
+
+# 集群模式
 eureka:
   client:
-    register-with-eureka: false
-    fetch-registry: false
+    register-with-eureka: true
+    fetch-registry: true
     server:
       waitTimeInMsWhenSyncEmpty: 0
+    service-url:
+      defaultZone: http://localhost:8101/eureka,http://localhost:8100/eureka
